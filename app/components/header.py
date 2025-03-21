@@ -1,8 +1,17 @@
 import flet as ft
+from typing import (
+  Literal,
+  Dict
+)
+
+Kwargs = Dict[
+  Literal['handle_animation_shrink'], ft.ControlEvent
+]
 
 class Header(ft.Container):
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
+    def __init__(self, **kwargs:Kwargs):
+        super().__init__()
+        kwargs: Kwargs = kwargs
         self.height = 50
         self.width = 1400
         self.bgcolor = ft.Colors.DEEP_PURPLE_500
@@ -14,6 +23,7 @@ class Header(ft.Container):
               icon=ft.Icons.MENU,
               icon_size=24,
               icon_color=ft.Colors.WHITE,
+              on_click=kwargs.get('handle_animation_shrink')
               ),
             ft.CircleAvatar(
               content=ft.Icon(

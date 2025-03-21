@@ -5,7 +5,6 @@ class ScreenStackPorvider(ft.Stack):
     super().__init__(**kwargs)
     self.homeScreen = HomeScreen()
     self.navigationScreen = NavigationScreen()
-    
     self.controls=[
       self.navigationScreen,
       self.homeScreen

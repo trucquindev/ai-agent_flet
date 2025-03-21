@@ -1,9 +1,8 @@
 import flet as ft
-
+from app.animations import AnimationUtils
 class HomeScreen (ft.Container):
   def __init__(self, **kwargs):
     super().__init__(**kwargs)
-    
     self.width = 1400
     self.bgcolor=ft.Colors.WHITE
     self.expand=True
@@ -17,7 +16,4 @@ class HomeScreen (ft.Container):
       ]
     )
   def handle_animation_shrink(self, event:ft.ControlEvent):
-    self.scale = ft.transform.Scale(
-      .65,
-      alignment=ft.alignment.center_right
-    )
+    AnimationUtils.animation_shrink(self, event)
